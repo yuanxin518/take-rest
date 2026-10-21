@@ -2,9 +2,9 @@
   "format": "gongwei-tixing-pack/1",
   "id": "office-light",
   "name": "办公室轻动作",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "",
-  "description": "不用起身、幅度很小的动作：呼吸、轻微发力、手部活动。适合开会、有人在场、穿正装的时候做。",
+  "description": "不用起身、幅度很小的动作：呼吸、轻微发力、手部活动。每个动作拆成最小步骤，每步有时长，步与步之间留 2 秒切换。",
   "source": "内置整理",
   "categories": [
     {
@@ -18,40 +18,78 @@
           "order": 1,
           "moves": [
             {
-              "id": "light-breath-nose-4-6",
+              "id": "light-breath-4-6",
               "level": "静音",
               "name": "4-6 呼吸",
               "order": 1,
-              "prompt": "4-6 呼吸 · 鼻吸 4 秒、嘴呼 6 秒，肩膀别耸 · 做 6 次",
+              "phases": [
+                {
+                  "text": "深呼吸",
+                  "sec": 6
+                },
+                {
+                  "text": "吐气",
+                  "sec": 4
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 4,
+              "durationSec": 48,
               "detail": "呼气比吸气长，能直接把心率压下来，比深吸一口气更解乏。",
-              "dosage": "做 6 次",
-              "durationSec": 60,
-              "reps": 6,
-              "tags": ["深呼吸", "降心率", "开会间隙"]
+              "tags": [
+                "深呼吸",
+                "降心率",
+                "开会间隙"
+              ]
             },
             {
               "id": "light-breath-belly",
               "level": "静音",
               "name": "腹式呼吸",
               "order": 2,
-              "prompt": "腹式呼吸 · 吸气鼓肚子，呼气慢慢收 · 做 5 次",
-              "detail": "只用肚子起伏，胸口不动，隔着桌子看不出你在做什么。",
-              "dosage": "做 5 次",
-              "durationSec": 50,
+              "phases": [
+                {
+                  "text": "吸气鼓腹",
+                  "sec": 4
+                },
+                {
+                  "text": "呼气收腹",
+                  "sec": 6
+                }
+              ],
+              "transitionSec": 2,
               "reps": 5,
-              "tags": ["腹式呼吸", "松开膈肌", "隐蔽"]
+              "durationSec": 60,
+              "detail": "只用肚子起伏，胸口不动，隔着桌子看不出你在做什么。",
+              "tags": [
+                "腹式呼吸",
+                "松开膈肌",
+                "隐蔽"
+              ]
             },
             {
               "id": "light-breath-sigh",
               "level": "静音",
               "name": "叹气式放松",
               "order": 3,
-              "prompt": "叹气式放松 · 吸满后张嘴叹气，像「哈——」 · 做 3 次",
-              "detail": "连续两次短吸再长呼，是最快的减压反射，心跳会明显慢下来。",
-              "dosage": "做 3 次",
-              "durationSec": 30,
+              "phases": [
+                {
+                  "text": "吸满",
+                  "sec": 3
+                },
+                {
+                  "text": "张嘴叹气",
+                  "sec": 5
+                }
+              ],
+              "transitionSec": 2,
               "reps": 3,
-              "tags": ["减压", "缓解紧绷"]
+              "durationSec": 30,
+              "detail": "连续两次短吸再长呼，是最快的减压反射，心跳会明显慢下来。",
+              "tags": [
+                "减压",
+                "缓解紧绷"
+              ]
             }
           ]
         },
@@ -65,36 +103,75 @@
               "level": "静音",
               "name": "坐姿收腹",
               "order": 1,
-              "prompt": "坐姿收腹 · 肚脐往脊柱贴，正常呼吸别憋气 · 收紧 10 秒 ×6",
+              "phases": [
+                {
+                  "text": "收紧",
+                  "sec": 10
+                },
+                {
+                  "text": "放松",
+                  "sec": 5
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 4,
+              "durationSec": 68,
               "detail": "只是轻微发力，椅子不晃、衣服不动，但核心一直在工作。",
-              "dosage": "收紧 10 秒，做 6 次",
-              "durationSec": 60,
-              "reps": 6,
-              "tags": ["核心", "改善坐姿", "无痕"]
+              "tags": [
+                "核心",
+                "改善坐姿",
+                "无痕"
+              ]
             },
             {
               "id": "light-tension-thigh",
               "level": "静音",
               "name": "大腿轻压",
               "order": 2,
-              "prompt": "大腿轻压 · 双手压大腿，大腿反向顶手 · 顶 8 秒 ×5",
+              "phases": [
+                {
+                  "text": "顶住发力",
+                  "sec": 8
+                },
+                {
+                  "text": "松开",
+                  "sec": 4
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 4,
+              "durationSec": 56,
               "detail": "等长收缩，桌面看不出动静，腿却已经在发力。",
-              "dosage": "顶 8 秒，做 5 次",
-              "durationSec": 45,
-              "reps": 5,
-              "tags": ["腿部发力", "久坐激活", "隐蔽"]
+              "tags": [
+                "腿部发力",
+                "久坐激活",
+                "隐蔽"
+              ]
             },
             {
               "id": "light-tension-glute",
               "level": "静音",
               "name": "臀肌轻夹",
               "order": 3,
-              "prompt": "臀肌轻夹 · 两边臀轻夹 5 秒再松 · 做 8 次",
+              "phases": [
+                {
+                  "text": "夹紧",
+                  "sec": 5
+                },
+                {
+                  "text": "放松",
+                  "sec": 5
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 5,
+              "durationSec": 60,
               "detail": "久坐最容易「忘记」的肌肉，轻轻夹几下就能把骨盆位置找回来，腰也会松一点。",
-              "dosage": "夹 5 秒，做 8 次",
-              "durationSec": 50,
-              "reps": 8,
-              "tags": ["臀部", "缓解腰痛", "完全看不出来"]
+              "tags": [
+                "臀部",
+                "缓解腰痛",
+                "完全看不出来"
+              ]
             }
           ]
         },
@@ -108,48 +185,99 @@
               "level": "静音",
               "name": "张指松手",
               "order": 1,
-              "prompt": "张指松手 · 五指尽力张开 3 秒，再轻握拳 3 秒 · 做 10 次",
+              "phases": [
+                {
+                  "text": "张开五指",
+                  "sec": 3
+                },
+                {
+                  "text": "轻握拳",
+                  "sec": 3
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 8,
+              "durationSec": 64,
               "detail": "打键盘、握鼠标久了手指一直半蜷着，张开那一下能立刻缓解酸胀。",
-              "dosage": "做 10 次",
-              "durationSec": 60,
-              "reps": 10,
-              "tags": ["手指", "防鼠标手", "打字间隙"]
+              "tags": [
+                "手指",
+                "防鼠标手",
+                "打字间隙"
+              ]
             },
             {
               "id": "light-hand-wrist-circles",
               "level": "静音",
               "name": "转手腕",
               "order": 2,
-              "prompt": "转手腕 · 十指交叉，左右各转 5 圈 · 左右各 5 圈",
+              "phases": [
+                {
+                  "text": "向左转圈",
+                  "sec": 8
+                },
+                {
+                  "text": "向右转圈",
+                  "sec": 8
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 3,
+              "durationSec": 54,
               "detail": "腕管里的筋一直压着，慢慢转几圈让它们滑一遍，手会轻不少。",
-              "dosage": "左右各 5 圈",
-              "durationSec": 40,
-              "reps": 10,
-              "tags": ["腕部", "腕管放松"]
+              "tags": [
+                "腕部",
+                "腕管放松"
+              ]
             },
             {
               "id": "light-hand-press-palm",
               "level": "静音",
               "name": "压掌拉伸",
               "order": 3,
-              "prompt": "压掌拉伸 · 掌心朝外推 10 秒，手臂前伸 · 左右各 3 次",
+              "phases": [
+                {
+                  "text": "左手压掌",
+                  "sec": 10
+                },
+                {
+                  "text": "右手压掌",
+                  "sec": 10
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 3,
+              "durationSec": 66,
               "detail": "把前臂内侧那条筋拉开，能缓解一直敲键盘带来的紧。",
-              "dosage": "每侧 3 次，每次 10 秒",
-              "durationSec": 60,
-              "reps": 6,
-              "tags": ["前臂", "手腕拉伸", "桌面安静"]
+              "tags": [
+                "前臂",
+                "手腕拉伸",
+                "桌面安静"
+              ]
             },
             {
-              "id": "light-hand-thumb-click",
+              "id": "light-hand-thumb-press",
               "level": "静音",
               "name": "拇指松解",
               "order": 4,
-              "prompt": "拇指松解 · 另一只手轻揉握拇指根部 · 每手 20 秒",
-              "detail": "鼠标手最先酸的是拇指根，揉开这一小块，握鼠标会舒服很多。",
-              "dosage": "每手 20 秒",
-              "durationSec": 40,
+              "phases": [
+                {
+                  "text": "揉左手拇指根",
+                  "sec": 10
+                },
+                {
+                  "text": "揉右手拇指根",
+                  "sec": 10
+                }
+              ],
+              "transitionSec": 2,
               "reps": 2,
-              "tags": ["拇指", "鼠标手", "揉按"]
+              "durationSec": 44,
+              "detail": "鼠标手最先酸的是拇指根，揉开这一小块，握鼠标会舒服很多。",
+              "tags": [
+                "拇指",
+                "鼠标手",
+                "揉按"
+              ]
             }
           ]
         }
