@@ -1,0 +1,184 @@
+{
+  "format": "gongwei-tixing-pack/1",
+  "id": "gongwei-5lianhuan",
+  "name": "工位“5连环”循环菜单",
+  "version": "1.1.0",
+  "author": "",
+  "description": "每次循环大约 2-3 分钟。每个动作拆成最小步骤，每步有时长，步与步之间留 2 秒切换。",
+  "source": "素材/工位五连环原始截图.jpg",
+  "categories": [
+    {
+      "id": "body",
+      "name": "身体",
+      "order": 1,
+      "parts": [
+        {
+          "id": "calf",
+          "name": "小腿",
+          "order": 1,
+          "moves": [
+            {
+              "id": "calf-sit-toe-raise",
+              "level": "静音",
+              "name": "坐姿踮脚",
+              "order": 1,
+              "phases": [
+                {
+                  "text": "踮起脚尖",
+                  "sec": 2,
+                  "how": "脚前掌发力，脚跟慢慢离地"
+                },
+                {
+                  "text": "停住",
+                  "sec": 2,
+                  "how": "在最高点稳住，感受小腿绷紧"
+                },
+                {
+                  "text": "放下",
+                  "sec": 1,
+                  "how": "脚跟自然落回地面，别砸"
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 6,
+              "durationSec": 54,
+              "detail": "打游戏久坐或上班久坐，血液都在小腿，踮脚能像抽水机一样把血泵回心脏，加速代谢。",
+              "tags": [
+                "下肢泵血",
+                "防腿粗",
+                "加速代谢"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "abdomen",
+          "name": "腹部",
+          "order": 2,
+          "moves": [
+            {
+              "id": "abdomen-sit-bicycle",
+              "level": "静音",
+              "name": "坐姿蹬自行车",
+              "order": 1,
+              "phases": [
+                {
+                  "text": "左腿前蹬",
+                  "sec": 3,
+                  "how": "左腿向前伸直悬空"
+                },
+                {
+                  "text": "右腿前蹬",
+                  "sec": 3,
+                  "how": "换右腿，像蹬自行车一样交替"
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 5,
+              "durationSec": 40,
+              "detail": "这招极其隐蔽，但消耗极大，直接针对内脏脂肪。",
+              "tags": [
+                "下腹",
+                "内脏脂肪",
+                "隐蔽燃脂"
+              ]
+            },
+            {
+              "id": "abdomen-deep-breath",
+              "level": "静音",
+              "name": "腹式深呼吸",
+              "order": 2,
+              "phases": [
+                {
+                  "text": "吸气鼓肚子",
+                  "sec": 4,
+                  "how": "鼻子吸气，让肚子把上衣顶起一点"
+                },
+                {
+                  "text": "呼气微收腹",
+                  "sec": 6,
+                  "how": "嘴慢慢呼，同时肚子往里收"
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 4,
+              "durationSec": 48,
+              "detail": "通过膈肌运动按摩内脏，比死命收腹一天舒服多了，还能帮你排解久坐的胀气。",
+              "tags": [
+                "按摩内脏",
+                "排胀气"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "neck-shoulder-back",
+          "name": "颈肩背",
+          "order": 3,
+          "moves": [
+            {
+              "id": "neck-sit-scapular-squeeze",
+              "level": "静音",
+              "name": "肩胛骨夹紧",
+              "order": 1,
+              "phases": [
+                {
+                  "text": "肩胛后夹",
+                  "sec": 3,
+                  "how": "两侧肩胛骨往中间靠，想象夹一支笔"
+                },
+                {
+                  "text": "放松",
+                  "sec": 3,
+                  "how": "彻底松开，肩膀自然下垂"
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 6,
+              "durationSec": 48,
+              "detail": "打工人必备。打游戏/打字肩膀容易耸，这招能瞬间缓解肩颈酸痛，矫正体态。",
+              "tags": [
+                "防圆肩驼背",
+                "放松颈椎",
+                "缓解肩颈酸痛"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "waist-core",
+          "name": "腰腹",
+          "order": 4,
+          "moves": [
+            {
+              "id": "waist-sit-twist",
+              "level": "静音",
+              "name": "坐着扭腰",
+              "order": 1,
+              "phases": [
+                {
+                  "text": "向左侧扭",
+                  "sec": 3,
+                  "how": "手抱脑后，上身向左转，眼睛看左后方"
+                },
+                {
+                  "text": "向右侧扭",
+                  "sec": 3,
+                  "how": "换右侧，同样转 3 秒再回正"
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 5,
+              "durationSec": 40,
+              "detail": "拉松腰部的僵硬感，促进肠胃蠕动，防止肚子上的肉叠在一起。",
+              "tags": [
+                "拉伸侧腰",
+                "促蠕动"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

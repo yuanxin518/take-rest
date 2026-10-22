@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 提醒窗只渲染自身资源；antd 不参与这个入口，所以样式只允许 inline（全局样式就在下面） -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'unsafe-inline'; img-src 'self' data:;"
+    />
+    <title>休息一下</title>
+    <style>
+      /*
+       * 视觉规格：docs/架构与数据规范.md 5.3 节，外加 0.3 的两处调整：
+       *   1) 提醒条不再铺满全宽：宽度由内容决定、水平居中，最大不超过屏宽一半；
+       *      到最大宽度后文字换行、高度自动变高（高度由驱动桌面按回报尺寸重设窗口）。
+       *   2) 带次数的动作在条下面多一行：进度条 + 「3/20」计数。
+       * 窗口是透明 + 点击穿透的，所以 html/body 必须彻底透明、无滚动条。
+       */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body,
+      #root {
+        width: 100%;
+        height: 100%;
+        background: transparent;
+        overflow: hidden;
+        user-select: none;
+        cursor: default;
+      }
+
+      body {
+        font-family: 'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Segoe UI', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* 未收到载荷时什么都不渲染（透明窗口，安静等待） */
+      .popup-root {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding: 2px 0;
+      }
+
+      /*
+       * 宽度：用 max-content 让内容自己撑开，但不超过父级（窗口 = 半屏上限）。
+       * 这样内容短的时候条就短，内容长到上限就换行，高度随之增加。
+       */
+      .popup-bar {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        width: max-content;
+        max-width: 100%;
+        min-width: 0;
+        padding: 10px 14px;
+        background: rgba(18, 20, 24, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        color: rgba(255, 255, 255, 0.92);
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 180ms ease-out, transform 180ms ease-out;
+        will-change: opacity, transform;
+      }
+
+      .popup-line {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        min-width: 0;
+      }
+
+
+      .popup-bar.is-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* 退场：反相 120ms，动画结束后才回报主进程收起 */
+      .popup-bar.is-leaving {
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 120ms ease-in, transform 120ms ease-in;
+      }
+
+      /* 任务栏在左右两侧时驱动桌面会把窗口变成竖向窄条，横条跟着竖排 */
+      .popup-bar.is-vertical {
+        width: 100%;
+        gap: 8px;
+        padding: 14px 10px;
+        text-align: center;
+      }
+
+      .popup-bar.is-vertical .popup-line {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .popup-dot {
+        flex: 0 0 auto;
+        width: 10px;
+        height: 10px;
+        margin-top: 5px; /* 多行时贴第一行，别垂直居中 */
+        border-radius: 50%;
+        background: #4ade80;
+        box-shadow: 0 0 6px rgba(74, 222, 128, 0.7);
+        animation: popup-breathe 1.6s ease-in-out infinite;
+      }
+
+      @keyframes popup-breathe {
+        0%,
+        100% {
+          opacity: 0.35;
+          transform: scale(0.85);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.15);
+        }
+      }
+
+      /*
+       * 正文：允许换行（到最大宽度就换行，不再截断成省略号）。
+       * flex:1 1 auto + min-width:0 让它在 flex 行里正常收缩。
+       */
+      .popup-content {
+        flex: 1 1 auto;
+        min-width: 0;
+        font-size: 15px;
+        line-height: 1.45;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+      }
+
+      .popup-bar.is-vertical .popup-content {
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+      }
+
+      /* ---------- 分段动作：深呼吸 6秒 · 吐气 4秒 ---------- */
+      .popup-phases {
+        display: inline-flex;
+        align-items: baseline;
+        flex-wrap: wrap;
+        gap: 0 2px;
+      }
+
+      .phase-chunk {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 3px;
+      }
+
+      .phase-text {
+        /* 默认压暗，靠 JS 给当前段上色 */
+        opacity: 0.5;
+        transition: opacity 160ms ease, color 160ms ease;
+      }
+
+      .phase-sec {
+        font-size: 0.82em;
+        color: rgba(255, 255, 255, 0.5);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .phase-sep {
+        opacity: 0.35;
+        margin: 0 2px;
+      }
+
+      /* 当前段：文字上色 + 不再压暗 */
+      .phase-chunk.is-active .phase-text {
+        opacity: 1;
+        font-weight: 600;
+      }
+
+      .phase-chunk.is-active .phase-sec {
+        color: inherit;
+        opacity: 0.85;
+      }
+
+      .popup-countdown {
+        flex: 0 0 auto;
+        align-self: flex-start;
+        margin-top: 2px;
+        font-size: 13px;
+        line-height: 1.4;
+        color: rgba(255, 255, 255, 0.55);
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+
+      /* ---------- 当前步骤做法：固定在进度条上方 ---------- */
+      .popup-how {
+        font-size: 13px;
+        line-height: 1.45;
+        padding-left: 2px;
+        /* 颜色由 JS 按当前段设置；这里只管排版 */
+      }
+
+      /* ---------- 进度条 + 次数计数（只在动作带 reps 时出现） ---------- */
+      .popup-progress {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .popup-track {
+        flex: 1 1 auto;
+        height: 4px;
+        border-radius: 2px;
+        background: rgba(255, 255, 255, 0.14);
+        overflow: hidden;
+      }
+
+      .popup-fill {
+        height: 100%;
+        border-radius: 2px;
+        background: #4ade80;
+        box-shadow: 0 0 6px rgba(74, 222, 128, 0.55);
+        /* 与 App.jsx 里 100ms 的进度采样同步：过渡太长会显得进度条追不上真实时间 */
+        transition: width 100ms linear;
+      }
+
+      .popup-reps {
+        flex: 0 0 auto;
+        font-size: 11px;
+        line-height: 1;
+        color: rgba(255, 255, 255, 0.6);
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+      }
+
+      /* ---------- 预告条（正片前 3 秒）：项目介绍 + 大号倒计时 ---------- */
+      .popup-bar.is-notice {
+        background: rgba(18, 20, 24, 0.86);
+        border-style: dashed;
+      }
+
+      .notice-content {
+        flex: 1 1 auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+
+      .notice-title {
+        flex: 0 0 auto;
+        font-size: 14px;
+        font-weight: 700;
+        color: #8ee0a4;
+        letter-spacing: 0.5px;
+      }
+
+      .notice-sep {
+        flex: 0 0 auto;
+        width: 1px;
+        height: 14px;
+        background: rgba(255, 255, 255, 0.18);
+      }
+
+      .notice-intro {
+        flex: 1 1 auto;
+        min-width: 0;
+        font-size: 13.5px;
+        color: rgba(255, 255, 255, 0.8);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      /* 大号倒计时数字：3、2、1，切换时有个小放大动画 */
+      .notice-count {
+        flex: 0 0 auto;
+        width: 28px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: 700;
+        color: #8ee0a4;
+        font-variant-numeric: tabular-nums;
+        animation: notice-pop 1s ease-out infinite;
+      }
+
+      @keyframes notice-pop {
+        0% {
+          transform: scale(1.35);
+          opacity: 1;
+        }
+        70% {
+          transform: scale(1);
+          opacity: 0.85;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 0.85;
+        }
+      }
+
+      /* 幅度档位预留：震动（窗口轻微抖动 + 琥珀色点）、轻响（蓝点）。首版只有静音 */
+      .popup-bar.level-震动 {
+        animation: popup-shake 220ms ease-in-out 2;
+      }
+      @keyframes popup-shake {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(-3px);
+        }
+        75% {
+          transform: translateX(3px);
+        }
+      }
+      .popup-bar.level-震动 .popup-dot {
+        background: #fbbf24;
+        box-shadow: 0 0 6px rgba(251, 191, 36, 0.7);
+      }
+      .popup-bar.level-轻响 .popup-dot {
+        background: #60a5fa;
+        box-shadow: 0 0 6px rgba(96, 165, 250, 0.7);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./main.jsx"></script>
+  </body>
+</html>

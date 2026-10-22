@@ -1,0 +1,11 @@
+{
+  "format": "gongwei-tixing-registry/1",
+  "name": "休息一下 · 官方动作包",
+  "description": "工位微动作动作包集合。本分支（packs）专放动作包，main 分支放软件代码。",
+  "packs": [
+    "packs/工位五连环.json",
+    "packs/加练-站立版.json",
+    "packs/办公室轻动作.json",
+    "packs/无声静息包.json"
+  ]
+}

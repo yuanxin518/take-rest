@@ -1,0 +1,16 @@
+# 依赖与构建产物
+node_modules/
+dist/
+dist-renderer/
+
+# 自检产生的临时目录 / 文件
+.smoke-data/
+.smoke-proxy/
+.pack-test/
+.repo-*/
+*.log
+.run-*.txt
+
+# 系统垃圾
+.DS_Store
+Thumbs.db

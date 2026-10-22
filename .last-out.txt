@@ -1,0 +1,10 @@
+
+[提醒] 清理 Electron 预建的目录（只有 Chromium 自动生成的文件）：C:\Users\hyx\AppData\Roaming\休息一下 Take rest
+[提醒] 数据目录：C:\Users\hyx\AppData\Roaming\take-rest
+[提醒] 托盘图标已创建
+[提醒] 注册执行方式：text（推送文字，priority 100）
+[提醒] 驱动桌面就绪，执行方式 1 个：text
+[提醒] 已加载动作包 2 个（内置 2 个 / 订阅 0 个，另有本地 0 个），动作 15 条
+[提醒] 动作包 2 个，可选动作 15 条
+[提醒] 下一次提醒：18:41（间隔 20 分钟，原因：启动）
+[提醒] 休息一下 Take rest 已启动

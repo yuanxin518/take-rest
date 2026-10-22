@@ -1,0 +1,189 @@
+{
+  "format": "gongwei-tixing-pack/1",
+  "id": "office-light",
+  "name": "办公室轻动作",
+  "version": "1.2.0",
+  "author": "",
+  "description": "不用起身、幅度很小的动作：呼吸、轻微发力、手部活动。每个动作拆成最小步骤，每步有时长和做法说明，步与步之间留 2 秒切换。",
+  "source": "内置整理",
+  "categories": [
+    {
+      "id": "body",
+      "name": "身体",
+      "order": 1,
+      "parts": [
+        {
+          "id": "breath",
+          "name": "呼吸",
+          "order": 1,
+          "moves": [
+            {
+              "id": "light-breath-4-6",
+              "level": "静音",
+              "name": "4-6 呼吸",
+              "order": 1,
+              "phases": [
+                { "text": "深呼吸", "sec": 6, "how": "用鼻子慢慢吸，把气吸到肚子而不是胸口" },
+                { "text": "吐气", "sec": 4, "how": "用嘴缓缓呼，像轻轻吹热汤但不出声" }
+              ],
+              "transitionSec": 2,
+              "reps": 4,
+              "durationSec": 48,
+              "detail": "呼气比吸气长，能直接把心率压下来，比深吸一口气更解乏。",
+              "tags": ["深呼吸", "降心率", "开会间隙"]
+            },
+            {
+              "id": "light-breath-belly",
+              "level": "静音",
+              "name": "腹式呼吸",
+              "order": 2,
+              "phases": [
+                { "text": "吸气鼓腹", "sec": 4, "how": "鼻子吸气，让肚子把手顶起来，胸口尽量不动" },
+                { "text": "呼气收腹", "sec": 6, "how": "嘴慢慢呼，肚子慢慢瘪下去，呼到底" }
+              ],
+              "transitionSec": 2,
+              "reps": 5,
+              "durationSec": 60,
+              "detail": "只用肚子起伏，胸口不动，隔着桌子看不出你在做什么。",
+              "tags": ["腹式呼吸", "松开膈肌", "隐蔽"]
+            },
+            {
+              "id": "light-breath-sigh",
+              "level": "静音",
+              "name": "叹气式放松",
+              "order": 3,
+              "phases": [
+                { "text": "吸满", "sec": 3, "how": "鼻子连吸两口，把肺吸到八分满" },
+                { "text": "张嘴叹气", "sec": 5, "how": "张嘴长长叹出去，像「哈——」一样放松" }
+              ],
+              "transitionSec": 2,
+              "reps": 3,
+              "durationSec": 30,
+              "detail": "连续两次短吸再长呼，是最快的减压反射，心跳会明显慢下来。",
+              "tags": ["减压", "缓解紧绷"]
+            }
+          ]
+        },
+        {
+          "id": "micro-tension",
+          "name": "微微发力",
+          "order": 2,
+          "moves": [
+            {
+              "id": "light-tension-core",
+              "level": "静音",
+              "name": "坐姿收腹",
+              "order": 1,
+              "phases": [
+                { "text": "收紧", "sec": 10, "how": "肚脐往脊柱方向贴，正常呼吸别憋气" },
+                { "text": "放松", "sec": 5, "how": "慢慢松开，休息一下再轮到下一轮" }
+              ],
+              "transitionSec": 2,
+              "reps": 4,
+              "durationSec": 68,
+              "detail": "只是轻微发力，椅子不晃、衣服不动，但核心一直在工作。",
+              "tags": ["核心", "改善坐姿", "无痕"]
+            },
+            {
+              "id": "light-tension-thigh",
+              "level": "静音",
+              "name": "大腿轻压",
+              "order": 2,
+              "phases": [
+                { "text": "顶住发力", "sec": 8, "how": "双手压在大腿上，大腿反向使劲顶手" },
+                { "text": "松开", "sec": 4, "how": "手和腿同时放松，感受血液流过的热感" }
+              ],
+              "transitionSec": 2,
+              "reps": 4,
+              "durationSec": 56,
+              "detail": "等长收缩，桌面看不出动静，腿却已经在发力。",
+              "tags": ["腿部发力", "久坐激活", "隐蔽"]
+            },
+            {
+              "id": "light-tension-glute",
+              "level": "静音",
+              "name": "臀肌轻夹",
+              "order": 3,
+              "phases": [
+                { "text": "夹紧", "sec": 5, "how": "两边臀轻轻往中间夹，幅度不用大" },
+                { "text": "放松", "sec": 5, "how": "彻底松开，让重量沉回椅面" }
+              ],
+              "transitionSec": 2,
+              "reps": 5,
+              "durationSec": 60,
+              "detail": "久坐最容易「忘记」的肌肉，轻轻夹几下就能把骨盆位置找回来，腰也会松一点。",
+              "tags": ["臀部", "缓解腰痛", "完全看不出来"]
+            }
+          ]
+        },
+        {
+          "id": "hand",
+          "name": "手部活动",
+          "order": 3,
+          "moves": [
+            {
+              "id": "light-hand-finger-spread",
+              "level": "静音",
+              "name": "张指松手",
+              "order": 1,
+              "phases": [
+                { "text": "张开五指", "sec": 3, "how": "五指尽力张开到最开，指尖绷住" },
+                { "text": "轻握拳", "sec": 3, "how": "慢慢收成拳，不用攥紧" }
+              ],
+              "transitionSec": 2,
+              "reps": 8,
+              "durationSec": 64,
+              "detail": "打键盘、握鼠标久了手指一直半蜷着，张开那一下能立刻缓解酸胀。",
+              "tags": ["手指", "防鼠标手", "打字间隙"]
+            },
+            {
+              "id": "light-hand-wrist-circles",
+              "level": "静音",
+              "name": "转手腕",
+              "order": 2,
+              "phases": [
+                { "text": "向左转圈", "sec": 8, "how": "十指交叉，手腕带着画大圈，越慢越好" },
+                { "text": "向右转圈", "sec": 8, "how": "换个方向再画几圈，感受腕骨被活动开" }
+              ],
+              "transitionSec": 2,
+              "reps": 3,
+              "durationSec": 54,
+              "detail": "腕管里的筋一直压着，慢慢转几圈让它们滑一遍，手会轻不少。",
+              "tags": ["腕部", "腕管放松"]
+            },
+            {
+              "id": "light-hand-press-palm",
+              "level": "静音",
+              "name": "压掌拉伸",
+              "order": 3,
+              "phases": [
+                { "text": "左手压掌", "sec": 10, "how": "左手臂前伸，掌心朝外，右手轻压指尖往回拉" },
+                { "text": "右手压掌", "sec": 10, "how": "换右手，同样拉住指尖保持住，别耸肩" }
+              ],
+              "transitionSec": 2,
+              "reps": 3,
+              "durationSec": 66,
+              "detail": "把前臂内侧那条筋拉开，能缓解一直敲键盘带来的紧。",
+              "tags": ["前臂", "手腕拉伸", "桌面安静"]
+            },
+            {
+              "id": "light-hand-thumb-press",
+              "level": "静音",
+              "name": "拇指松解",
+              "order": 4,
+              "phases": [
+                { "text": "揉左手拇指根", "sec": 10, "how": "右手拇指按住左手虎口下方，画小圈揉" },
+                { "text": "揉右手拇指根", "sec": 10, "how": "换手，同样揉拇指根部那一小块" }
+              ],
+              "transitionSec": 2,
+              "reps": 2,
+              "durationSec": 44,
+              "detail": "鼠标手最先酸的是拇指根，揉开这一小块，握鼠标会舒服很多。",
+              "tags": ["拇指", "鼠标手", "揉按"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

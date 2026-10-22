@@ -1,0 +1,122 @@
+{
+  "format": "gongwei-tixing-pack/1",
+  "id": "gongwei-5lianhuan-stand",
+  "name": "工位五连环 · 站立加练版",
+  "version": "1.1.0",
+  "author": "",
+  "description": "同一套五连环改成站着做。每个动作拆成最小步骤，每步有时长，步与步之间留 2 秒切换。",
+  "source": "工位五连环的站立变体",
+  "categories": [
+    {
+      "id": "body",
+      "name": "身体",
+      "order": 1,
+      "parts": [
+        {
+          "id": "calf",
+          "name": "小腿",
+          "order": 1,
+          "moves": [
+            {
+              "id": "stand-calf-raise",
+              "level": "静音",
+              "name": "站立提踵",
+              "order": 1,
+              "phases": [
+                { "text": "踮起脚尖", "sec": 2 },
+                { "text": "停住", "sec": 2 },
+                { "text": "放下", "sec": 1 }
+              ],
+              "transitionSec": 2,
+              "reps": 6,
+              "durationSec": 54,
+              "detail": "站着做比坐着幅度大，小腿泵血更明显；扶一下桌子保持平衡。",
+              "tags": ["下肢泵血", "站立版", "扶桌保持平衡"]
+            }
+          ]
+        },
+        {
+          "id": "abdomen",
+          "name": "腹部",
+          "order": 2,
+          "moves": [
+            {
+              "id": "stand-leg-lift",
+              "level": "静音",
+              "name": "站立抬膝",
+              "order": 1,
+              "phases": [
+                { "text": "抬左膝", "sec": 3 },
+                { "text": "抬右膝", "sec": 3 }
+              ],
+              "transitionSec": 2,
+              "reps": 5,
+              "durationSec": 40,
+              "detail": "站着交替抬膝，比坐着蹬车更费核心，注意别弓背。",
+              "tags": ["下腹", "站立版", "核心稳定"]
+            },
+            {
+              "id": "stand-deep-breath",
+              "level": "静音",
+              "name": "站立腹式呼吸",
+              "order": 2,
+              "phases": [
+                { "text": "吸气鼓肚子", "sec": 4 },
+                { "text": "呼气微收腹", "sec": 6 }
+              ],
+              "transitionSec": 2,
+              "reps": 4,
+              "durationSec": 48,
+              "detail": "站着更容易把气吸到腹部，肩膀别跟着耸。",
+              "tags": ["按摩内脏", "站立版"]
+            }
+          ]
+        },
+        {
+          "id": "neck-shoulder-back",
+          "name": "颈肩背",
+          "order": 3,
+          "moves": [
+            {
+              "id": "stand-scapular-squeeze",
+              "level": "静音",
+              "name": "站立夹肩胛",
+              "order": 1,
+              "phases": [
+                { "text": "肩胛后夹", "sec": 3 },
+                { "text": "放松", "sec": 3 }
+              ],
+              "transitionSec": 2,
+              "reps": 6,
+              "durationSec": 48,
+              "detail": "站着做能把胸打开，久坐圆肩的人做完会明显松一口气。",
+              "tags": ["防圆肩驼背", "站立版", "打开胸腔"]
+            }
+          ]
+        },
+        {
+          "id": "waist-core",
+          "name": "腰腹",
+          "order": 4,
+          "moves": [
+            {
+              "id": "stand-waist-twist",
+              "level": "静音",
+              "name": "站立转体",
+              "order": 1,
+              "phases": [
+                { "text": "向左侧转", "sec": 3 },
+                { "text": "向右侧转", "sec": 3 }
+              ],
+              "transitionSec": 2,
+              "reps": 5,
+              "durationSec": 40,
+              "detail": "站着转体幅度更大，脚别离地，靠腰带动上身。",
+              "tags": ["拉伸侧腰", "站立版", "促蠕动"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

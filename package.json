@@ -1,0 +1,36 @@
+{
+  "name": "take-rest",
+  "productName": "休息一下 Take rest",
+  "version": "0.2.0",
+  "private": true,
+  "description": "任务栏上方的定时微动作提醒工具，动作包从 GitHub 订阅",
+  "main": "src/main/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "npm run build:renderer && electron .",
+    "dev": "node scripts/dev.cjs",
+    "build:renderer": "vite build",
+    "build": "npm run build:renderer && node scripts/build.cjs",
+    "build:zip": "npm run build:renderer && node scripts/build.cjs --zip",
+    "smoke": "node scripts/smoke-test.mjs",
+    "check": "electron scripts/e2e-check.cjs"
+  },
+  "keywords": [
+    "electron",
+    "reminder",
+    "windows",
+    "taskbar",
+    "health"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "antd": "^5.29.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.7.0",
+    "electron": "^30.5.1",
+    "vite": "^5.4.21"
+  }
+}
