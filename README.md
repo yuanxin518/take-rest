@@ -1,69 +1,31 @@
-# 动作包分支（packs）
+# 订阅分支模板（对应 take-rest 的 `packs` 分支）
 
-这个分支**只放动作包数据**，软件代码在 `main` 分支。
-
-## 怎么用
-
-在「站立提醒」面板 → 订阅 → 粘贴以下任一地址：
+> 正式订阅源：**https://github.com/yuanxin518/take-rest**
+> 分支约定：`main` 放代码，`packs` 放动作包。下面的地址都可以在面板里直接粘。
 
 | 订阅内容 | 粘贴地址 |
 |---|---|
-| 这个仓库（自动找到 packs 分支） | `https://github.com/yuanxin518/take-rest` |
-| 锁定 packs 分支（推荐，地址不会随默认分支变） | `https://raw.githubusercontent.com/yuanxin518/take-rest/packs/manifest.json` |
+| 整个仓库（自动找到 `packs` 分支） | `https://github.com/yuanxin518/take-rest` |
+| 锁定 `packs` 分支（推荐） | `https://raw.githubusercontent.com/yuanxin518/take-rest/packs/manifest.json` |
 
-软件粘贴仓库地址时，如果默认分支（main）上没有 `manifest.json`，会自动去别的分支里找，找到后记下「动作包分支：packs」。
+## 这个目录是什么
 
-## 目录约定
+本目录是 `packs` 分支内容的本地副本，也是给别人复用的模板：一个 `manifest.json` + 若干 `packs/*.json`。
 
-```
-manifest.json          订阅清单
-packs/
-  工位五连环.json        5 个工位微动作（坐姿踮脚/蹬自行车/腹式深呼吸/肩胛骨夹紧/坐着扭腰）
-  加练-站立版.json       同一套动作的站立变体（站立提踵等）
-```
+## 分支怎么被绑定
+
+- 粘**仓库地址**：先试 `HEAD / main / master`，都没有 `manifest.json` 就去问 GitHub API 有哪些分支，逐个分支找；找到后提示「动作包分支：packs」，订阅源地址记成该分支的 raw 地址。
+- 粘 **raw 地址**：分支就是 URL 里那一段，不再探测。
+- API 被限流或断网：退回常见分支名（`packs` / `data` / `actions`）再试一轮，仍失败才报错，报错里会说明「所有分支里都没找到 manifest.json」。
 
 ## 加动作
 
-1. 在 `packs/` 下新建一个 JSON，格式见下。
-2. 把相对路径写进 `manifest.json` 的 `packs` 数组。
-3. 推到本分支。
-4. 软件面板里对该订阅点「立即同步」（或等 6 小时自动同步）。
+在 `packs/` 下新建 JSON → 相对路径写进 `manifest.json` 的 `packs` 数组 → 推到 `packs` 分支 → 面板点「立即同步」（或等 6 小时自动同步）。
 
-## 动作包格式（v1）
+动作包格式见 [packs 分支的 README](https://github.com/yuanxin518/take-rest/blob/packs/README.md)。
 
-```json
-{
-  "format": "gongwei-tixing-pack/1",
-  "id": "my-pack",
-  "name": "我的动作包",
-  "version": "1.0.0",
-  "description": "一句话说明",
-  "categories": [
-    {
-      "id": "body", "name": "身体", "order": 1,
-      "parts": [
-        {
-          "id": "calf", "name": "小腿", "order": 1,
-          "moves": [
-            {
-              "id": "my-calf-raise",
-              "level": "静音",
-              "name": "坐姿踮脚",
-              "order": 1,
-              "prompt": "坐姿踮脚 · 脚平踩用力踮脚尖，停 2 秒重重放下 · 连做 20 个",
-              "dosage": "连续做 20 个",
-              "durationSec": 40,
-              "tags": ["下肢泵血"]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
+## 注意
 
-- 三级结构：`类别 → 部位 → 幅度档位（level）→ 动作`，首版档位只有 `静音`（`轻响` / `震动` 预留）。
-- `prompt` 就是任务栏上弹出来的那一行字，建议 40 字内，用 ` · ` 分成「动作 · 要领 · 数量」。
-- `durationSec` 决定提醒条停留秒数（面板里「弹出停留」填 0 时用它）。
-- 跨包的 `id` 不能重复，重复时以后装的那个为准。
+- 只支持**公开仓库**：软件不带 token，私有仓库拉不到。
+- 本机实测：`raw.githubusercontent.com` 直连时好时坏，`github.com` 的 git 通道基本必须走代理。软件已内置「直连失败自动改用系统代理」的回退，不用手动配。
+- 同 `id` 的动作：订阅包优先于软件内置包（订阅是权威源）。

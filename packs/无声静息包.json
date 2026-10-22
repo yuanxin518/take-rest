@@ -1,0 +1,238 @@
+{
+  "format": "gongwei-tixing-pack/1",
+  "id": "office-calm",
+  "name": "无声静息包",
+  "version": "1.0.0",
+  "author": "",
+  "description": "完全无声、几乎零动作的一组：只有呼吸节奏和极轻微的发力，开会中、与人面对面也完全看不出来。",
+  "source": "内置整理",
+  "categories": [
+    {
+      "id": "body",
+      "name": "身体",
+      "order": 1,
+      "parts": [
+        {
+          "id": "breath",
+          "name": "呼吸",
+          "order": 1,
+          "moves": [
+            {
+              "id": "calm-breath-box",
+              "level": "静音",
+              "name": "方块呼吸",
+              "order": 1,
+              "phases": [
+                {
+                  "text": "吸气",
+                  "sec": 4,
+                  "how": "用鼻子缓缓吸，心里默数 1-2-3-4"
+                },
+                {
+                  "text": "屏住",
+                  "sec": 4,
+                  "how": "轻轻屏住，肩膀和下巴都放松，别憋脸"
+                },
+                {
+                  "text": "呼气",
+                  "sec": 4,
+                  "how": "用嘴匀速呼出，像轻轻吹气但不出声"
+                },
+                {
+                  "text": "屏住",
+                  "sec": 4,
+                  "how": "保持放松，等下一个 4 拍再吸"
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 3,
+              "durationSec": 66,
+              "detail": "吸-屏-呼-屏四拍等长的呼吸法，美国海豹突击队用来快速稳住情绪，开会紧张时特别管用。",
+              "tags": [
+                "方块呼吸",
+                "稳情绪",
+                "完全无声"
+              ]
+            },
+            {
+              "id": "calm-breath-long-exhale",
+              "level": "静音",
+              "name": "长呼气放松",
+              "order": 2,
+              "phases": [
+                {
+                  "text": "吸气",
+                  "sec": 3,
+                  "how": "鼻子吸气，肚子微微鼓起"
+                },
+                {
+                  "text": "长呼气",
+                  "sec": 7,
+                  "how": "嘴慢慢呼，尽量把气吐干净，呼的时间是吸的两倍多"
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 4,
+              "durationSec": 48,
+              "detail": "呼气比吸气长会激活副交感神经，是生理上最直接的放松开关。",
+              "tags": [
+                "长呼气",
+                "副交感神经",
+                "快速放松"
+              ]
+            },
+            {
+              "id": "calm-breath-count",
+              "level": "静音",
+              "name": "数息专注",
+              "order": 3,
+              "phases": [
+                {
+                  "text": "吸气",
+                  "sec": 4,
+                  "how": "自然吸气，不用刻意深"
+                },
+                {
+                  "text": "呼气数数",
+                  "sec": 6,
+                  "how": "呼气时心里默数一轮的序号：1、2、3…"
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 5,
+              "durationSec": 60,
+              "detail": "把注意力挂在数数上，走神了就从头数，是最简单的正念练习。",
+              "tags": [
+                "正念",
+                "注意力",
+                "无动作"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "face-jaw",
+          "name": "面部下颌",
+          "order": 2,
+          "moves": [
+            {
+              "id": "calm-face-jaw-drop",
+              "level": "静音",
+              "name": "松下颌",
+              "order": 1,
+              "phases": [
+                {
+                  "text": "咬紧",
+                  "sec": 3,
+                  "how": "上下牙轻轻咬合，感受咬肌绷紧"
+                },
+                {
+                  "text": "松开微张",
+                  "sec": 5,
+                  "how": "慢慢松开，嘴巴微张，舌头轻抵上颚"
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 4,
+              "durationSec": 40,
+              "detail": "焦虑时人会不自觉咬紧牙，松开下颌整张脸都会跟着松。",
+              "tags": [
+                "下颌",
+                "咬肌",
+                "完全看不出来"
+              ]
+            },
+            {
+              "id": "calm-face-brow",
+              "level": "静音",
+              "name": "舒展眉头",
+              "order": 2,
+              "phases": [
+                {
+                  "text": "皱眉",
+                  "sec": 3,
+                  "how": "眉头轻轻皱起，保持住"
+                },
+                {
+                  "text": "舒展",
+                  "sec": 5,
+                  "how": "眉心向两侧摊开，像水波散开一样"
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 4,
+              "durationSec": 40,
+              "detail": "盯屏幕时眉心一直是锁着的，主动舒展几次，眼睛的疲劳感也会轻一些。",
+              "tags": [
+                "眉心",
+                "护眼",
+                "零动作"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "shoulder-micro",
+          "name": "肩颈微动",
+          "order": 3,
+          "moves": [
+            {
+              "id": "calm-shoulder-ear",
+              "level": "静音",
+              "name": "耸肩贴耳",
+              "order": 1,
+              "phases": [
+                {
+                  "text": "耸肩向耳",
+                  "sec": 4,
+                  "how": "双肩轻轻上提去找耳朵，幅度不用大"
+                },
+                {
+                  "text": "放松落下",
+                  "sec": 5,
+                  "how": "让肩膀自然垂下去，感受它沉下来"
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 4,
+              "durationSec": 44,
+              "detail": "耸肩幅度可以小到只有一两厘米，重点是「提起来再彻底放下」这个对比。",
+              "tags": [
+                "肩颈",
+                "幅度极小",
+                "西装可做"
+              ]
+            },
+            {
+              "id": "calm-shoulder-blade",
+              "level": "静音",
+              "name": "肩胛微收",
+              "order": 2,
+              "phases": [
+                {
+                  "text": "微收肩胛",
+                  "sec": 4,
+                  "how": "两侧肩胛骨轻轻往中间靠一点，别耸肩"
+                },
+                {
+                  "text": "放松",
+                  "sec": 4,
+                  "how": "慢慢松开，回到自然坐姿"
+                }
+              ],
+              "transitionSec": 2,
+              "reps": 4,
+              "durationSec": 40,
+              "detail": "只移动一两厘米，从外表看只是坐姿微调，却能把圆肩拉回来。",
+              "tags": [
+                "肩胛",
+                "矫正体态",
+                "几乎无痕"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
